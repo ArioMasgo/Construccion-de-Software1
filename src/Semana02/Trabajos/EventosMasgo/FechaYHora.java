@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EventosMasgo;
+package Semana02.Trabajos.EventosMasgo;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,13 +23,13 @@ public class FechaYHora {
     SimpleDateFormat dateFormat = new SimpleDateFormat("H:m:s");
     Date fecha1;
     Date fecha2;
-    public FechaYHora(String fechainicio,String fechafin) throws ParseException {
+    public FechaYHora() {
         Calendar calendario = Calendar.getInstance();
         this.dia = calendario.get(Calendar.DATE);
         this.mes = calendario.get(Calendar.MONTH);
         this.anio = calendario.get(Calendar.YEAR);
-        fecha1 = dateFormat.parse(fechainicio);
-        fecha2 = dateFormat.parse(fechafin);
+//        fecha1 = dateFormat.parse(fechainicio);
+//        fecha2 = dateFormat.parse(fechafin);
 
     }
 
@@ -94,11 +94,11 @@ public class FechaYHora {
     public String MostrarFecha(){
         return getDia()+"/"+getMes()+"/"+getAnio()+" "+getHh()+" : "+getMm();
     }
-    public static void main(String[] args) throws ParseException {
-        FechaYHora sc = new FechaYHora("09:00:00", "10:00:00");
-        sc.diferenciaFecha();
-        sc.MostrarFecha();
-    }
+//    public static void main(String[] args) throws ParseException {
+//        FechaYHora sc = new FechaYHora("09:00:00", "10:00:00");
+//        sc.diferenciaFecha();
+//        sc.MostrarFecha();
+//    }
 }
  
 

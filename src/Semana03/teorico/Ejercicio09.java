@@ -47,10 +47,14 @@ class worker {
         return nombre;
     }
 
+    public String getAfiliacion() {
+        return afiliacion;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     public double montoExtras() {
         return (sueldo * hextras) / 240;
     }
@@ -84,63 +88,101 @@ class worker {
 
     @Override
     public String toString() {
-        return "worker{" + "nombre=" + nombre + ", codigo=" + codigo + 
-                ", Arealaboral=" + Arealaboral + "\nsueldo=" + sueldo + "\nhextras=" + hextras + ", "
+        return "worker{" + "nombre=" + nombre + ", codigo=" + codigo
+                + ", Arealaboral=" + Arealaboral + "\nsueldo=" + sueldo + "\nhextras=" + hextras + ", "
                 + "\nafiliacion=" + afiliacion + ", \nmontosueldobruto=" + montosueldobruto + ", "
-                + "\nsueldoneto=" + sueldoneto + 
-                "\nmonto extras: "+montoExtras()+"\nmontoSeguro: "+montoSeguro()+
-                "\nmontoSalud: "+montoSalud()+"\nmontodeDescuento: "+montodeDescuento()+
-                "\nmontosueldobruto: "+montoSueldoBruto()+"\nsueldoNeto: "+SueldoNeto();
-        
+                + "\nsueldoneto=" + sueldoneto
+                + "\nmonto extras: " + montoExtras() + "\nmontoSeguro: " + montoSeguro()
+                + "\nmontoSalud: " + montoSalud() + "\nmontodeDescuento: " + montodeDescuento()
+                + "\nmontosueldobruto: " + montoSueldoBruto() + "\nsueldoNeto: " + SueldoNeto();
+
     }
 }
-class PERSONA{
+
+class PERSONA {
+
     ArrayList<worker> obj = new ArrayList<>();
-    double total=0;
-    String nombre="";
-    double max=0,suma=0,promedio=0;
-    
-    public void PromedioSueldoMArketing(){
-        int con=0;
+    double total = 0;
+    String nombre = "", nombre2 = "";
+    double max = 0, menor = 9999999, suma = 0, promedio = 0;
+
+    public void MayorSueldoNeto() {
+        for (int i = 0; i < obj.size(); i++) {
+
+            if (obj.get(i).SueldoNeto() > max) {
+                max = obj.get(i).SueldoNeto();
+                nombre = obj.get(i).getNombre();
+            }
+
+        }
+        System.out.println("A: El nombre del mayor sueldo neto: " + nombre);
+    }
+
+    public void PromedioSueldoMArketing() {
+        int con = 0;
         for (int i = 0; i < obj.size(); i++) {
             if (obj.get(i).getArealaboral().equalsIgnoreCase("Marketing")) {
-                suma=suma+obj.get(i).SueldoNeto();
+                suma = suma + obj.get(i).SueldoNeto();
                 con++;
             }
         }
-        promedio=suma/(double)con;
-        System.out.println("B: El promedio de sus sueldos del Area de MArketing es  :"+promedio);
-        
-       
+        promedio = suma / (double) con;
+        System.out.println("B: El promedio de sus sueldos del Area de MArketing es  :" + promedio);
+
     }
-    public void Total(){
+
+    public void MOntoseguroMayorA100() {
+        int cont = 0;
         for (int i = 0; i < obj.size(); i++) {
-            total=total+obj.get(i).montoSueldoBruto();
-        }
-        System.out.println("La empresa paga en total:"+total);
-    }
-    public void MayorSueldoNeto(){
-        for (int i = 0; i < obj.size(); i++) {
-            
-            if (obj.get(i).SueldoNeto()>max) {
-                max=obj.get(i).SueldoNeto();
-                nombre=obj.get(i).getNombre();
+            if (obj.get(i).montoSeguro() > 100) {
+                cont++;
             }
-            
-        }System.out.println("A: El nombre del mayor sueldo neto: "+nombre);
+        }
+        System.out.println("C: Numero de Empleados cuyo Monto de Seguro superen los 100 : " + cont);
     }
-    
-    public void crearPersona(worker k){
+
+    public void AreaDeSistemasHorasextras500y800() {
+        int cont = 0;
+        for (int i = 0; i < obj.size(); i++) {
+            if (obj.get(i).montoExtras() > 500 && obj.get(i).montoExtras() < 800) {
+                cont++;
+            }
+        }
+        System.out.println("D: Numero de empleados del área de sistemas cuyo monto de\n"
+                + "Horas extras están entre 500 y 800 soles : " + cont);
+    }
+
+    public void SNPMenorMontoDeDescuento() {
+        for (int i = 0; i < obj.size(); i++) {
+            if (obj.get(i).getAfiliacion().equalsIgnoreCase("SNP")) {
+                if (obj.get(i).montodeDescuento() < menor) {
+                    menor = obj.get(i).montodeDescuento();
+                    nombre2 = obj.get(i).getNombre();
+                }
+            }
+        }
+        System.out.println("E: Empleado del SNP con el menor monto de Descuento: " + nombre2);
+    }
+
+    public void Total() {
+        for (int i = 0; i < obj.size(); i++) {
+            total = total + obj.get(i).montoSueldoBruto();
+        }
+        System.out.println("F: La empresa paga en total: $" + total);
+    }
+
+    public void crearPersona(worker k) {
         obj.add(k);
     }
-    public void mostrarPersona(){
+
+    public void mostrarPersona() {
         for (worker e : obj) {
             System.out.println(e.toString());
             System.out.println("\n******************************");
         }
-        
+
     }
-    
+
 }
 
 public class Ejercicio09 {
@@ -156,13 +198,21 @@ public class Ejercicio09 {
         per.crearPersona(new worker("Maria", "09568", laboral[aleatorio(0, 3)], 1800.0, 20, afi[aleatorio(0, 2)], 4000.0, 2500.0));
         per.crearPersona(new worker("Roberto", "09568", laboral[aleatorio(0, 3)], 5200.0, 20, afi[aleatorio(0, 2)], 4000.0, 2500.0));
         per.mostrarPersona();
-        System.out.println("--------------");
-        per.Total();
+        
         System.out.println("------------");
         per.MayorSueldoNeto();
         System.out.println("-----------");
         per.PromedioSueldoMArketing();
+        System.out.println("-----------");
+        per.MOntoseguroMayorA100();
+        System.out.println("-----------");
+        per.AreaDeSistemasHorasextras500y800();
+        System.out.println("-----------");
+        per.SNPMenorMontoDeDescuento();
+        System.out.println("--------------");
+        per.Total();
     }
+
     static int aleatorio(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }

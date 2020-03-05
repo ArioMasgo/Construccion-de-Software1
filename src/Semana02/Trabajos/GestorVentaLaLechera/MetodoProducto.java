@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GestorVentaLaLechera;
+package Semana02.Trabajos.GestorVentaLaLechera;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -105,7 +105,7 @@ public class MetodoProducto {
         boolean band = true;
         double precio=0;
 //        if (f.getMes() != f.getMes()) {
-        if (esMultiplo(cantidad, 100)) {
+        if (esMultiplo(cantidad,100)) {
             for (int i = 0; i < producto.size(); i++) {
                 if (producto.get(i).getNombre().equalsIgnoreCase(nombre)) {
                     

@@ -27,15 +27,16 @@ public class Operaciones<Op> implements Iterable<Op> {
     
     
     public void add(Op p){        
-            if(result1.size()<=topeX){
-                if(result1.size()<=topeY){
-                    result1.add(p);
-                }else{
-                    throw new RuntimeException("No cabe mas en Y");
-                }
-            }else{
-                throw new RuntimeException("No cabe mas X");
-            }                     
+//            if(result1.size()<=topeX){
+//                if(result1.size()<=topeY){
+//                    result1.add(p);
+//                }else{
+//                    throw new RuntimeException("No cabe mas en Y");
+//                }
+//            }else{
+//                throw new RuntimeException("No cabe mas X");
+//            }   
+            result1.add(p);
     }
     
     public Iterator<Op> iterator() {            
@@ -77,6 +78,8 @@ public class Operaciones<Op> implements Iterable<Op> {
             System.out.println("Operacion con FLoat: "+ f.toString());
         }
     }
+
+  
    
   
     

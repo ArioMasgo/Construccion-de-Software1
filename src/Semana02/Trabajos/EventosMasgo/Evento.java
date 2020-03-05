@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EventosMasgo;
+package Semana02.Trabajos.EventosMasgo;
 
 import java.util.ArrayList;
 
