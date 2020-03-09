@@ -9,58 +9,68 @@ package Semana03.Trabajos;
  *
  * @author Ario1
  */
+
+
 class CuentaW{
-   private String cadena;
-    
-    public CuentaW(String cadena){
-        this.cadena = cadena;
+    String texto;
+
+    public CuentaW(String texto) {
+        this.texto = texto;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
     }
     
-    public void setCadena(String cadena){
-        this.cadena = cadena;
+    public void numeroLetras(){
+        int espacios=0;
+        for (int i = 0; i < this.texto.length(); i++) {
+            if(texto.charAt(i)==' '){
+                espacios++;
+            }
+        }
+        int letras=texto.length()-espacios;
+        System.out.println("cantidad de letras: "+letras);
     }
     
-    private boolean letrasMinus(char i){
-        for(char c = 'a';c<='z';c++){
-            if(i==c)
-                return true;
-        }   
-        return false;
+    public void numeroPalabras(){
+        int cont=1, pos;
+        texto.trim(); //elimina posibles espacios en blanco al inicio y al final
+        
+        if(this.texto.isEmpty()){//verifica si la cadena esta vacia
+            cont=0;
+        }else{
+            pos=this.texto.indexOf(" ");//busca primer espacio en blanco
+            while(pos!=-1){
+                cont++;
+                pos=this.texto.indexOf(" ", pos+1);
+            }
+        }
+        System.out.println("cantidad de palabras: "+cont);
+                    
     }
     
-    private boolean letrasMayus(char i){
-        for(char c = 'A';c<='Z';c++){
-            if(i==c)
-                return true;
-        }   
-        return false;
+    public void cantidadRepeticiones(char caracter){
+        int pos, cont=0;
+        pos=this.texto.indexOf(caracter);
+        while(pos!=-1){
+            cont++;
+            pos=this.texto.indexOf(caracter, pos+1);
+        }
+        System.out.println("el caracter "+ "'"+caracter+"'"+" aparece "+cont+" veces");
     }
-    
-   public int NumLetras(){
-        int contLetras = 0;
-        String caracter = "";
-        for(int i=0;i<cadena.length();i++)            
-            if(letrasMayus(cadena.charAt(i)) || letrasMinus(cadena.charAt(i)))
-                contLetras++;        
-        return contLetras;
-    }
-                
-    public int NumPalabras(){
-        int contPalabras = 0;        
-        for (int i = 0; i < cadena.length(); i++){
-            if(i <= cadena.length()-1){  
-                if(letrasMayus(cadena.charAt(i)) || letrasMinus(cadena.charAt(i)))                
-                    if(!letrasMayus(cadena.charAt(i-1)) && !letrasMinus(cadena.charAt(i-1)))
-                        contPalabras++;
-            }            
-        }            
-        return contPalabras;
-    }     
 }
+
 public class Ejercicio03 {
     public static void main(String[] args) {
-        CuentaW c = new CuentaW("Raquela q");
-        System.out.println("Numero de letras que hay : "+c.NumLetras());
-        System.out.println("Numero de palabras que hay : "+c.NumPalabras());
+        CuentaW c1=new CuentaW("all we need is love");
+        System.out.println(c1.getTexto());
+        c1.numeroLetras();
+        c1.numeroPalabras();
+        c1.cantidadRepeticiones('e');
     }
 }

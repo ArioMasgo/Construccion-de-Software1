@@ -62,7 +62,7 @@ public class MetodoTreeSet {
         Alumno A5 = new Alumno("Fernando", 2);
         Alumno A6 = new Alumno("Pedro", 3);
 
-        TreeSet lista = new TreeSet();
+        HashSet lista = new HashSet();
         lista.add(A1);
         lista.add(A2);
         lista.add(A3);
@@ -73,11 +73,11 @@ public class MetodoTreeSet {
         mostrarLista(lista);
 
  
-        lista.remove(A3);
-        mostrarLista(lista);
+//        lista.remove(A3);
+//        mostrarLista(lista);
 
         lista.clear();
-        mostrarLista(lista);
+//        mostrarLista(lista);
         
     }
     

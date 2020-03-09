@@ -45,7 +45,7 @@ public class FrameRegistro extends JFrame{
         btnsalir=new JButton("SALIR");
         btnsalir.setBounds(245, 50, 90, 20);
         
-        ListaTrabajador=new JLabel("Lista de mascotas: ");
+        ListaTrabajador=new JLabel("Lista de Trabajadores: ");
         ListaTrabajador.setBounds(20,90 , 160, 20);
         
         txalista=new JTextArea();

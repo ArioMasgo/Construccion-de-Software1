@@ -29,58 +29,41 @@ class Padron{
     ArrayList<Persona> p=new ArrayList<>();
     Padron(Persona per){
     p.add(per);
+    
     }
     
 }
 class Tinta implements impresora{
-    Persona per;
-    public Tinta(Padron p) {
-        
-    }
-
     @Override
     public void imprimir(Object o) {
         
     }
 }
 class Laser implements impresora{
-    Persona per;
-    public Laser(Padron p) {
-        
-    }
-
     @Override
     public void imprimir(Object o) {
          
     }
 }    
 class termica implements impresora{
-    Persona per;
-    public termica(Padron p) {
-        
-    }
-
     @Override
     public void imprimir(Object o) {
-        
+        if (o instanceof Persona) {
+            System.out.println("EL ");
+        }
     }
     
 
 }
-class ServicioImpresion implements impresora{
+class ServicioImpresion{
     impresora impri;
     
-    @Override
-    public void imprimir(Object o) {
-        if (o instanceof Persona) {
-            System.out.println(" Se imprimio .... ");
-        }
+   
+    void ServicioImprimir(impresora p){
+        impri=p;
     }
-    void Servicio(Object o){
-        impri.imprimir(o);
-    }
-    public void mostrar(){
-    
+    public void mostrar(Padron p){
+    impri.imprimir(p);
     }
 
 }
@@ -88,7 +71,8 @@ class ServicioImpresion implements impresora{
 public class Ejercicio01 {
     public static void main(String[] args) {
         ServicioImpresion s = new ServicioImpresion();
-        s.Servicio(new termica(new Padron(new Persona("luis", 23.0))));
+        s.ServicioImprimir(new termica());
+        s.mostrar(new Padron(new Persona("luis", 123)));
     }
     
 }

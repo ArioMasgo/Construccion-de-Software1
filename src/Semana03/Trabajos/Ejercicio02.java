@@ -5,6 +5,7 @@
  */
 package Semana03.Trabajos;
 
+import java.util.HashSet;
 import java.util.TreeSet;
 
 /**
@@ -17,7 +18,7 @@ public class Ejercicio02 {
     TreeSet<Integer> numero = new TreeSet<Integer>();
     
     public void Agreagar(){
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 100; i++) {
             numero.add(aleatorio(1, 100));
         }
             

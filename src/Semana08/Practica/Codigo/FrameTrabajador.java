@@ -17,7 +17,7 @@ import javax.swing.*;
  */
 public class FrameTrabajador extends JFrame{
     
-    JLabel lblRegistroMascota,lblnombre,lbledad,lblraza;
+    JLabel lblRegistroTrabajador,lblnombre,lblSalario,lblFecha;
     JTextField txtnombre,txtSalario,txtdia,txtmes,txtAnio;
     JButton btnregistrar;
     
@@ -36,18 +36,18 @@ public class FrameTrabajador extends JFrame{
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        lblRegistroMascota=new JLabel("Registro de trabajadores");
-        lblRegistroMascota.setFont(new Font("Serif",Font.BOLD, 20));
-        lblRegistroMascota.setBounds(70, 10, 180, 30);
+        lblRegistroTrabajador=new JLabel("Registro de trabajadores");
+        lblRegistroTrabajador.setFont(new Font("Serif",Font.BOLD, 20));
+        lblRegistroTrabajador.setBounds(70, 10, 180, 30);
         
         lblnombre=new JLabel("Nombre:");
         lblnombre.setBounds(20, 60, 70, 20);
         
-        lbledad=new JLabel("Salario:");        
-        lbledad.setBounds(20, 90, 70, 20);
+        lblSalario=new JLabel("Salario:");        
+        lblSalario.setBounds(20, 90, 70, 20);
         
-        lblraza=new JLabel("Fecha:");
-        lblraza.setBounds(20, 120, 70, 20);
+        lblFecha=new JLabel("Fecha:");
+        lblFecha.setBounds(20, 120, 70, 20);
         
         txtnombre=new JTextField();
         txtnombre.setBounds(100, 60, 120, 20);
@@ -68,10 +68,10 @@ public class FrameTrabajador extends JFrame{
         btnregistrar.setFont(new Font("Serif", Font.BOLD, 18));
         btnregistrar.setBounds(100, 160, 140, 30);
         
-        add(lblRegistroMascota);
+        add(lblRegistroTrabajador);
         add(lblnombre);
-        add(lbledad);
-        add(lblraza);
+        add(lblSalario);
+        add(lblFecha);
         add(txtnombre);
         add(txtSalario);
         add(txtdia);
@@ -88,7 +88,7 @@ public class FrameTrabajador extends JFrame{
     }
     
     private void botonRegistrarActionPerformed(ActionEvent e){
-        if (txtnombre.getText().equals(" ") || txtSalario.getText().equals(" ")) {
+        if (txtnombre.getText().isEmpty() || txtSalario.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese todos los campos");
 
         } else {

@@ -34,7 +34,7 @@ class num{
         return "num{" + "n=" + n + '}';
     }
 }
-class numeros{
+class NUMERO{
       ArrayList<num>ListaAlum=new ArrayList<>();
     
     public void agregar(num d){
@@ -54,7 +54,7 @@ class numeros{
 
 public class Ejercicio07 {
        public static void main(String[] args) {
-         numeros c=new numeros();
+         NUMERO c=new NUMERO();
         num d1=new num(4);
         num d2=new num(3);
         num d3=new num(5);

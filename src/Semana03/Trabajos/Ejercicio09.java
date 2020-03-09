@@ -64,10 +64,10 @@ class Baraja{
                 pos.add(n);
         }
         int cant=0;
-        for(Integer e: pos){
-            cartas.get(cant).posicion=e;
-            cant++;
-        }
+//        for(Integer e: pos){
+//            cartas.get(cant).posicion=e;
+//            cant++;
+//        }
         Carta temp;
         for(int i=0;i<52;i++){
             //for(int j=i;j<52;j++)

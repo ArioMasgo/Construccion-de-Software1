@@ -30,6 +30,7 @@ class WUR {
     public void contarTodas() {
         String palabras[] = this.texto.split(" ");//divide una cadena de texto en palabras
         String palabrasB[] = this.texto.split(" ");
+        
 
         int cantidad = palabras.length;
         String resultado = "";
@@ -70,8 +71,8 @@ class WUR {
 public class Ejercicio04 {
 
     public static void main(String[] args) {
-        WUR w = new WUR("all all we need need is love love");
+        WUR w = new WUR("hola como estas estas como hola hola");
         w.contarTodas();
-        System.out.println(w.contar_Repetidas("love"));
+        
     }
 }
