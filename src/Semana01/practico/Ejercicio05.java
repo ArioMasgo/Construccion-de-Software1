@@ -15,6 +15,7 @@ public class Ejercicio05 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese num1");
+        
         double num1=sc.nextDouble();
         System.out.println("Ingrese num2");
         double num2=sc.nextDouble();

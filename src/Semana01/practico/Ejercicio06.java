@@ -20,6 +20,6 @@ public class Ejercicio06 {
         minutos=(hora*60);
         segundos=(minutos)*60;
         
-        System.out.println("minutos: "+ minutos +" Segundos: " +segundos);
+        System.out.println("minut0s: "+ minutos +" Segundos: " +segundos);
     }
 }
